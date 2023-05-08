@@ -102,3 +102,15 @@ process.on('SIGINT', () => {
         }    
     })
 })
+
+// Endpoint at /app/ gets 200 OK
+app.get("/app/", (req, res) => {
+    res.status(200).end('200 OK'); 
+}); 
+
+// Default API endpoint
+app.use(function(req, res) {
+    const statusCode = 404; 
+    const statusMsg = 'NOT FOUND'; 
+    res.status(statusCode).end(statusCode+' '+statusMsg); 
+});

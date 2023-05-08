@@ -24,7 +24,7 @@ function showHideShots() {
 }
 
 function startOver() {
-    document.getElementById('userinput').requestFullscreen(); 
+    document.getElementById('userinput').reset(); 
     showHideShots(); 
 }
 
@@ -36,17 +36,19 @@ async function playGame() {
 
     let check = document.getElementById('opponent'); 
     let url = ''; 
+
     if (check.checked==true) {
         url = baseURL + game + '/play/' + shot; 
     } else {
         url = baseURL + game + '/play/'; 
-    }
-    
+    } 
+    console.log(url); 
+
     // TO DO: Other versions. 
 
 
     let response = await fetch(url); 
-    let result = await responsejson(); 
+    let result = await response.json(); 
 
     // Need something to tell if Opponent box is checked. Must be able to select. 
     // Depending on game. append something different to url. SHOT >> PULLED OUT OF NAME GROUP (done). 

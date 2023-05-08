@@ -4,19 +4,26 @@
 
 function showHideShots() {
     let check = document.getElementById('opponent'); 
-    let radiorps = document.getElementsByClassName('rps'); 
-    let radiorpsls = document.getElementsByClassName('rpsls'); 
+    let radiorps = document.getElementById('rps'); 
+    let radiorpsls = document.getElementById('rpsls'); 
 
     // Check if checked is checked. 
     if (check.checked==true) {
         $('.shots').show(); 
 
+        if (radiorpsls.checked==true) {
+            $('.rpsls').show(); 
+        } else {
+            // Since using radio, else means that radiorps.checked == true. 
+            $('.rpsls').hide(); 
+        }
     } else {
         $('.shots').hide(); 
     }
     
     // TODO : Use same logic to do first two options. 
 
+    
 }
 
 function startOver() {
@@ -38,5 +45,6 @@ async function playGame() {
     let result = await responsejson(); 
 
     // Need something to tell if Opponent box is checked. Must be able to select. 
+    let check = document.getElementById('opponent'); 
     // Depending on game. append something different to url. SHOT >> PULLED OUT OF NAME GROUP (done). 
 }

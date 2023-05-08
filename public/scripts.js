@@ -33,8 +33,15 @@ async function playGame() {
     let shot = $('input[type=radio][name=shot]: checked').val(); 
 
     let baseURL = window.location.href + 'app/'; 
-    let url = baseURL + game + '/play/'; 
 
+    let check = document.getElementById('opponent'); 
+    let url = ''; 
+    if (check.checked==true) {
+        url = baseURL + game + '/play/' + shot; 
+    } else {
+        url = baseURL + game + '/play/'; 
+    }
+    
     // TO DO: Other versions. 
 
 
@@ -42,6 +49,5 @@ async function playGame() {
     let result = await responsejson(); 
 
     // Need something to tell if Opponent box is checked. Must be able to select. 
-    let check = document.getElementById('opponent'); 
     // Depending on game. append something different to url. SHOT >> PULLED OUT OF NAME GROUP (done). 
 }

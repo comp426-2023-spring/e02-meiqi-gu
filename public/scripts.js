@@ -21,9 +21,6 @@ function showHideShots() {
         $('.shots').hide(); 
     }
     
-    // TODO : Use same logic to do first two options. 
-
-    
 }
 
 function startOver() {

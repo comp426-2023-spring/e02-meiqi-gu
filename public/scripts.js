@@ -4,7 +4,6 @@
 
 function showHideShots() {
     let check = document.getElementById('opponent');
-    let radiorps = document.getElementById('rps');
     let radiorpsls = document.getElementById('rpsls');
 
     // Check if checked is checked. 
@@ -20,9 +19,6 @@ function showHideShots() {
     } else {
         $('.shots').hide();
     }
-
-    console.log('HERE');
-
 }
 
 function startOver() {
@@ -34,7 +30,7 @@ function startOver() {
     $(".inlineBlock").css({
         display: "inline-block"
     });
-    console.log('Starting over.');
+
     document.getElementById('userinput').reset();
     $('.results').hide();
     showHideShots();
@@ -84,7 +80,5 @@ async function playGame() {
     }
 
     $('.results').show();
-
-    console.log(result);
-
+    console.log(results); 
 }

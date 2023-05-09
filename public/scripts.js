@@ -34,12 +34,8 @@ function startOver() {
 
 async function playGame() {
 
-    console.log('PLAYING')
     let game = $('input[type=radio][name=game]:checked').val(); 
     let shot = $('input[type=radio][name=shot]:checked').val(); 
-    console.log(game); 
-    console.log(shot); 
-
 
     let baseURL = window.location.href + 'app/'; 
 
@@ -53,11 +49,35 @@ async function playGame() {
     } 
     console.log(url); 
 
-    let response = await fetch(url); 
-    $('.results').show(); 
+    // let response = await fetch(url); 
     // stops working here. 
-    let result = await response.json(); 
+
+    // let result = await response; 
+
+    await fetch(url)
+        .then(function(response) {
+            return response.json(); 
+        })
+            .then(function(result) {
+                console.log(result); 
+                document.getElementById("playerChoice").innerHTML = "Player: " + result.player; 
+                document.getElementById("opponentChoice").innerHTML = "Opponent: " + result.opponent; 
+                document.getElementById("gameResult").innerHTML = "Result: " + result.result; 
+            }); 
+        
+    
+    $('.playerChoice').show(); 
+
+    if (check.checked) {
+
+        $('.rpslsOutput').show(); 
+
+    } else {
+        $('.rpslsOutput').hide(); 
+    }
+
+    $('.results').show(); 
 
     console.log(result); 
-
+   
 }

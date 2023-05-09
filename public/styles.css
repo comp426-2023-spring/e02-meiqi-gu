@@ -14,7 +14,7 @@ form>* {
     margin-left: 20pt;
 }
 
-button {
+button, .btn {
     font-family: 'Source Code Pro', monospace;
     font-size: 16pt;
     padding: 0.5rem;
@@ -27,12 +27,12 @@ button {
     width: 40%;
 }
 
-button:hover {
+button:hover, .btn:hover {
     background-color: #90a959ff;
     color: white;
 }
 
-button:active {
+button:active, .btn:active {
     background-color: #e9b872ff;
 }
 
@@ -47,3 +47,28 @@ h2 {
 .results {
     display: none;
 }
+
+.redFont {
+    color: #C04641;
+}
+
+a {
+    text-decoration: none;
+    color: black; 
+}
+a:hover {
+    font-weight: bold;
+    color: #C04641;
+}
+.btn a {
+    font-family: 'Source Code Pro', monospace;
+    text-decoration: none;
+    color: white; 
+}
+.btn {
+    text-align: center;
+}
+
+
+
+

@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Source+Code+Pro&display=swap'); 
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+form > * {
+    margin: 20pt; 
+}
+
+.results {
+    margin-left: 20pt; 
+}
+
+button {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 16pt; 
+    padding: 0.5rem; 
+    background-color: darkcyan;
+    color: white; 
+    border: none; 
+    border-radius: 5px;
+    margin: 0.75rem; 
+}
+
+button:hover {
+    background-color: cadetblue;
+}
+button:active {
+    background-color: lightblue;
+    color: black; 
+}
+h1 {
+    font-size: 20pt; 
+    font-weight: 700;
+}
+p {
+}

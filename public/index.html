@@ -17,7 +17,18 @@
 </head>
 
 <body onload="showHideShots()">
+    <section>
+        <h1>How to Play</h1>
+        <ul>
+            <li><a href="https://www.wikihow.com/Play-Rock,-Paper,-Scissors">How to Play Rock, Paper, Scissors: A Simple
+                    Guide</a></li>
+            <li><a href="https://www.instructables.com/How-to-Play-Rock-Paper-Scissors-Lizard-Spock/">How to Play Rock,
+                    Paper, Scissors, Lizard, Spock</a> </li>
+        </ul>
+    </section>
+
     <main>
+        <h1>The Game</h2>
         <form id="userinput" class="" action="javascript:void(0)">
             <div>
                 <input type="radio" id="rps" name="game" value="rps" onclick="showHideShots()" checked>
@@ -55,7 +66,7 @@
     </main>
     <!--Place to put results.-->
     <div class="results">
-        <h1>Results here: </h1>
+        <h2>Game Results</h2>
         <p><span id="playerChoice"></span></p>
         <p><span id="opponentChoice" class="rpslsOutput"></span></p>
         <p><span id="gameResult" class="rpslsOutput"></span></p>

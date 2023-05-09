@@ -34,7 +34,11 @@ h1 {
     font-size: 20pt;
     font-weight: 700;
 }
+h2 {
+    font-size: 18pt; 
+}
 
 .results {
     display: none;
 }
+

@@ -63,9 +63,13 @@ async function playGame() {
         })
         .then(function (result) {
             console.log(result);
-            document.getElementById("playerChoice").innerHTML = "Player: " + result.player;
+            if (check.checked==false) {
+                document.getElementById("playerChoice").innerHTML = result.player;
+            } else {
+                document.getElementById("playerChoice").innerHTML = "You: " + result.player;
+            }
             document.getElementById("opponentChoice").innerHTML = "Opponent: " + result.opponent;
-            document.getElementById("gameResult").innerHTML = "Result: " + result.result;
+            document.getElementById("gameResult").innerHTML = "Result: you " + result.result;
         });
 
 

@@ -33,3 +33,7 @@ h1 {
     font-size: 20pt; 
     font-weight: 700;
 }
+
+.results {
+    display: none; 
+}

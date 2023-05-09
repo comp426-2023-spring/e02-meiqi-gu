@@ -28,13 +28,18 @@ function showHideShots() {
 function startOver() {
     console.log('Starting over.'); 
     document.getElementById('userinput').reset(); 
+    $('.results').hide(); 
     showHideShots(); 
 }
 
 async function playGame() {
+
     console.log('PLAYING')
-    let game = $('input[type=radio][name=game]: checked').val(); 
-    let shot = $('input[type=radio][name=shot]: checked').val(); 
+    let game = $('input[type=radio][name=game]:checked').val(); 
+    let shot = $('input[type=radio][name=shot]:checked').val(); 
+    console.log(game); 
+    console.log(shot); 
+
 
     let baseURL = window.location.href + 'app/'; 
 
@@ -48,10 +53,11 @@ async function playGame() {
     } 
     console.log(url); 
 
-    console.log('OMG ITS DOING THINGS'); 
-
     let response = await fetch(url); 
+    $('.results').show(); 
+    // stops working here. 
     let result = await response.json(); 
+
     console.log(result); 
 
 }

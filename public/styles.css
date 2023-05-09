@@ -1,7 +1,11 @@
 * {
     font-family: 'Montserrat', sans-serif;
 }
-
+body {
+    margin: 12% 25%; 
+    max-height: 100vh; 
+    accent-color: #C04641; 
+}
 form>* {
     margin: 20pt;
 }
@@ -14,20 +18,22 @@ button {
     font-family: 'Source Code Pro', monospace;
     font-size: 16pt;
     padding: 0.5rem;
-    background-color: darkcyan;
+    background-color: #C04641;
     color: white;
     border: none;
     border-radius: 5px;
     margin: 0.75rem;
+    max-width: 250px; 
+    width: 40%;
 }
 
 button:hover {
-    background-color: cadetblue;
+    background-color: #90a959ff;
+    color: white;
 }
 
 button:active {
-    background-color: lightblue;
-    color: black;
+    background-color: #e9b872ff;
 }
 
 h1 {
@@ -35,10 +41,9 @@ h1 {
     font-weight: 700;
 }
 h2 {
-    font-size: 18pt; 
+    font-size: 15pt; 
 }
 
 .results {
     display: none;
 }
-

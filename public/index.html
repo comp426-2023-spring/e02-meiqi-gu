@@ -17,7 +17,7 @@
 </head>
 
 <body onload="showHideShots()">
-    <section>
+    <section class="hideDuringResults">
         <h1>How to Play</h1>
         <ul>
             <li><a href="https://www.wikihow.com/Play-Rock,-Paper,-Scissors">How to Play Rock, Paper, Scissors: A Simple
@@ -27,22 +27,23 @@
         </ul>
     </section>
 
-    <main>
-        <h1>The Game</h2>
+    <main id="theGame">
+        <div class="hideDuringResults"><h1>The Game</h2></div>
+
         <form id="userinput" class="" action="javascript:void(0)">
-            <div>
+            <div class="hideDuringResults">
                 <input type="radio" id="rps" name="game" value="rps" onclick="showHideShots()" checked>
                 <label for="rps">Play rock, paper, scissors?</label>
             </div>
-            <div>
+            <div class="hideDuringResults">
                 <input type="radio" id="rpsls" name="game" value="rpsls" onclick="showHideShots()">
                 <label for="rpsls">Play rock, paper, scissors, lizard, spock?</label>
             </div>
-            <div>
+            <div class="hideDuringResults">
                 <input type="checkbox" id="opponent" name="playtype" value="opponent" onclick="showHideShots()">
                 <label for="opponent">Play against an opponent?</label>
             </div>
-            <div>
+            <div class="hideDuringResults">
                 <input type="radio" id="rock" name="shot" value="rock" class="rps shots" checked>
                 <label class="shots rps">Rock</label>
 
@@ -58,19 +59,21 @@
                 <input type="radio" id="spock" name="shot" value="spock" class="rpsls shots">
                 <label class="shots rpsls">Spock</label>
             </div>
-            <div><button type="submit" id="play" onclick="playGame()">Play</button>
+
+            <div class="results">
+                <h2>Game Results</h2>
+                <p><span id="playerChoice"></span></p>
+                <p><span id="opponentChoice" class="rpslsOutput"></span></p>
+                <p><span id="gameResult" class="rpslsOutput"></span></p>
+            </div>
+            <div><button type="submit" id="play" class="hideDuringResults inlineBlock" onclick="playGame()">Play</button>
                 <button type="submit" id="startover" onclick="startOver()">Start Over</button>
             </div>
 
         </form>
     </main>
     <!--Place to put results.-->
-    <div class="results">
-        <h2>Game Results</h2>
-        <p><span id="playerChoice"></span></p>
-        <p><span id="opponentChoice" class="rpslsOutput"></span></p>
-        <p><span id="gameResult" class="rpslsOutput"></span></p>
-    </div>
+    
 
 </body>
 

@@ -3,81 +3,88 @@
 // https://github.com/jdmar3/coinserver
 
 function showHideShots() {
-    let check = document.getElementById('opponent'); 
-    let radiorps = document.getElementById('rps'); 
-    let radiorpsls = document.getElementById('rpsls'); 
+    let check = document.getElementById('opponent');
+    let radiorps = document.getElementById('rps');
+    let radiorpsls = document.getElementById('rpsls');
 
     // Check if checked is checked. 
-    if (check.checked==true) {
-        $('.shots').show(); 
+    if (check.checked == true) {
+        $('.shots').show();
 
-        if (radiorpsls.checked==true) {
-            $('.rpsls').show(); 
+        if (radiorpsls.checked == true) {
+            $('.rpsls').show();
         } else {
             // Since using radio, else means that radiorps.checked == true. 
-            $('.rpsls').hide(); 
+            $('.rpsls').hide();
         }
     } else {
-        $('.shots').hide(); 
+        $('.shots').hide();
     }
 
-    console.log('HERE'); 
-    
+    console.log('HERE');
+
 }
 
 function startOver() {
-    console.log('Starting over.'); 
-    document.getElementById('userinput').reset(); 
-    $('.results').hide(); 
-    showHideShots(); 
+    $(".hideDuringResults").css({
+        display: "block",
+        visibility: "visible"
+    });
+
+    $(".inlineBlock").css({
+        display: "inline-block"
+    });
+    console.log('Starting over.');
+    document.getElementById('userinput').reset();
+    $('.results').hide();
+    showHideShots();
 }
 
 async function playGame() {
+    $(".hideDuringResults").css({
+        display: "none",
+        visibility: "hidden"
+    });
+    let game = $('input[type=radio][name=game]:checked').val();
+    let shot = $('input[type=radio][name=shot]:checked').val();
 
-    let game = $('input[type=radio][name=game]:checked').val(); 
-    let shot = $('input[type=radio][name=shot]:checked').val(); 
+    let baseURL = window.location.href + 'app/';
 
-    let baseURL = window.location.href + 'app/'; 
+    let check = document.getElementById('opponent');
+    let url = '';
 
-    let check = document.getElementById('opponent'); 
-    let url = ''; 
-
-    if (check.checked==true) {
-        url = baseURL + game + '/play/' + shot; 
+    if (check.checked == true) {
+        url = baseURL + game + '/play/' + shot;
     } else {
-        url = baseURL + game + '/play/'; 
-    } 
-    console.log(url); 
+        url = baseURL + game + '/play/';
+    }
+    console.log(url);
 
-    // let response = await fetch(url); 
-    // stops working here. 
-
-    // let result = await response; 
 
     await fetch(url)
-        .then(function(response) {
-            return response.json(); 
+        .then(function (response) {
+            return response.json();
         })
-            .then(function(result) {
-                console.log(result); 
-                document.getElementById("playerChoice").innerHTML = "Player: " + result.player; 
-                document.getElementById("opponentChoice").innerHTML = "Opponent: " + result.opponent; 
-                document.getElementById("gameResult").innerHTML = "Result: " + result.result; 
-            }); 
-        
-    
-    $('.playerChoice').show(); 
+        .then(function (result) {
+            console.log(result);
+            document.getElementById("playerChoice").innerHTML = "Player: " + result.player;
+            document.getElementById("opponentChoice").innerHTML = "Opponent: " + result.opponent;
+            document.getElementById("gameResult").innerHTML = "Result: " + result.result;
+        });
+
+
+    $('.playerChoice').show();
 
     if (check.checked) {
 
-        $('.rpslsOutput').show(); 
+        $('.rpslsOutput').show();
 
     } else {
-        $('.rpslsOutput').hide(); 
+        $('.rpslsOutput').hide();
     }
 
-    $('.results').show(); 
+    $('.results').show();
 
-    console.log(result); 
-   
+    console.log(result);
+
 }

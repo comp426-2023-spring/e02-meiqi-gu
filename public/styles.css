@@ -56,15 +56,18 @@ a {
     text-decoration: none;
     color: black; 
 }
+
 a:hover {
     font-weight: bold;
     color: #C04641;
 }
+
 .btn a {
     font-family: 'Source Code Pro', monospace;
     text-decoration: none;
     color: white; 
 }
+
 .btn {
     text-align: center;
 }

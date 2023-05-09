@@ -25,7 +25,7 @@
         <label for="opponent">Play against an opponent?</label>
         <br><br>
 
-        <input type="radio" id="rock" name="shot" value="rock" class="rps shots">
+        <input type="radio" id="rock" name="shot" value="rock" class="rps shots" checked>
         <label class="shots rps">Rock</label>
 
         <input type="radio" id="paper" name="shot" value="paper" class="rps shots">
@@ -43,6 +43,9 @@
         <button type="submit" id="play" onclick="playGame()">Play</button>
         <button type="submit" id="startover" onclick="startOver()">Start Over</button>
     </form>
+    <div class="results">
+        <h1></h1>
+    </div>
 
 </body>
 

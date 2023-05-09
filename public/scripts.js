@@ -20,15 +20,19 @@ function showHideShots() {
     } else {
         $('.shots').hide(); 
     }
+
+    console.log('HERE'); 
     
 }
 
 function startOver() {
+    console.log('Starting over.'); 
     document.getElementById('userinput').reset(); 
     showHideShots(); 
 }
 
 async function playGame() {
+    console.log('PLAYING')
     let game = $('input[type=radio][name=game]: checked').val(); 
     let shot = $('input[type=radio][name=shot]: checked').val(); 
 
@@ -44,12 +48,10 @@ async function playGame() {
     } 
     console.log(url); 
 
-    // TO DO: Other versions. 
-
+    console.log('OMG ITS DOING THINGS'); 
 
     let response = await fetch(url); 
     let result = await response.json(); 
+    console.log(result); 
 
-    // Need something to tell if Opponent box is checked. Must be able to select. 
-    // Depending on game. append something different to url. SHOT >> PULLED OUT OF NAME GROUP (done). 
 }

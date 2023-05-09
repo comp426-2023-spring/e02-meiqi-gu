@@ -63,7 +63,16 @@ const app = express()
 const port = args.port || args.p || process.env.PORT || 8080
 // Load app middleware here to serve routes, accept data requests, etc.
 //
-app.use(express.static('./public')); 
+// Create and update access log
+// The morgan format below is the Apache Foundation combined format but with ISO8601 dates
+app.use(morgan(':remote-addr - :remote-user [:date[iso]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"',
+    {stream: fs.createWriteStream(path.join(logpath, 'access.log')), flags: 'a' }
+))
+// Serve static files
+const staticpath = args.stat || args.s || process.env.STATICPATH || path.join(__dirname, 'public')
+app.use('/', express.static(staticpath))
+
+//  ADD THINGS HERE. 
 
 app.get("/app/", (req, res, next) => {
     res.status(200).end('200 OK'); 
@@ -132,14 +141,7 @@ app.use(function(req, res) {
     res.status(statusCode).end(statusCode+' '+statusMsg); 
 }); 
 
-// Create and update access log
-// The morgan format below is the Apache Foundation combined format but with ISO8601 dates
-app.use(morgan(':remote-addr - :remote-user [:date[iso]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"',
-    {stream: fs.createWriteStream(path.join(logpath, 'access.log')), flags: 'a' }
-))
-// Serve static files
-const staticpath = args.stat || args.s || process.env.STATICPATH || path.join(__dirname, 'public')
-app.use('/', express.static(staticpath))
+// END OF ADDED THINGS. 
 // Create app listener
 const server = app.listen(port)
 // Create a log entry on start
